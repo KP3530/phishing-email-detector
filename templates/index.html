@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Phishing Email Detector</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      margin-top: 1rem;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>🔍 Phishing Email Detector</h1>
+
+  <textarea id="emailText" placeholder="Paste email content here..."></textarea><br>
+  <button onclick="analyzeEmail()">Analyze</button>
+
+  <pre id="output">Results will appear here...</pre>
+
+  <script>
+    async function analyzeEmail() {
+      const emailText = document.getElementById('emailText').value;
+      const output = document.getElementById('output');
+
+      if (!emailText.trim()) {
+        output.innerText = " Please paste an email first.";
+        return;
+      }
+
+      try {
+        const response = await fetch('/analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email_text: emailText })
+        });
+
+        const result = await response.json();
+
+        output.innerText =
+          ` Suspicious Phrases: ${result.found_phrases.length ? result.found_phrases.join(', ') : 'None'}\n\n` +
+          ` Suspicious Links: ${result.suspicious_links.length ? result.suspicious_links.join('\n') : 'None'}`;
+      } catch (error) {
+        output.innerText = " An error occurred. Make sure the backend is running.";
+        console.error(error);
+      }
+    }
+  </script>
+</body>
+</html>

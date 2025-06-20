@@ -1,0 +1,59 @@
+Example 1: Clearly Suspicious Phishing Email
+
+Dear User,
+
+Urgent: Your account has been compromised! Please click here http://fakebank.com/login to verify your account immediately.
+
+Failure to do so will result in your account being locked. Please login and update your information right away.
+
+Thank you,
+Support Team
+
+
+Example 2: Mildly Suspicious Email (contains suspicious phrases but no links)
+ 
+
+Hello,
+
+We noticed some unusual activity on your account. Please verify your account information at your earliest convenience.
+
+If you did not perform this action, please contact support.
+
+Regards,
+Customer Service
+
+Example 3: Suspicious Link Only
+ 
+
+Hi,
+
+Check out this deal: http://malicious-site.com/deal
+
+Hurry, the offer expires soon!
+
+Best,
+Sales Team
+
+
+Example 4: Safe Email (no suspicious phrases or links)
+
+Hi John,
+
+Just wanted to check in and see how your project is going. Let me know if you need any help.
+
+Thanks,
+Alice
+
+Example 5: Phishing Email with multiple suspicious links and phrases
+ 
+Dear Customer,
+
+You have been selected to receive a prize! Act now and claim it by visiting http://scam-site.com/prize or http://fake-link.net.
+
+Please login with your password to confirm your identity.
+
+This is urgent, do not miss out!
+
+Best,
+Prize Team
+
